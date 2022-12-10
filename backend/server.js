@@ -4,6 +4,7 @@ const colors = require('colors');
 
 // custom modules
 const goalRoutes = require('./routes/goalRoutes');
+const userRoutes = require('./routes/userRoutes');
 const { errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db');
 
@@ -20,7 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // ROUTES
-app.use('/api', goalRoutes)
+app.use('/api', goalRoutes);
+app.use('/api/users', userRoutes);
 
 // ERRORHANDLER MIDDLEWARE
 app.use(errorHandler);
