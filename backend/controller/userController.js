@@ -71,10 +71,10 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // @desc GET USER DATA
 const getMe = asyncHandler(async (req, res) => {
-    const { _id, name, email } = await User.findById(req.user.id);
+    const { id, name, email } = req.user;
 
     res.json({
-        id: _id,
+        id,
         name,
         email
     });
